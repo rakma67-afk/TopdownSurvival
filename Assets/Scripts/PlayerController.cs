@@ -1,3 +1,4 @@
+/*
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -156,3 +157,65 @@ public class PlayerController : MonoBehaviour
     }
 }
 
+*/
+using UnityEngine;
+
+[RequireComponent(typeof(Rigidbody))]
+public class PlayerController : MonoBehaviour
+{
+    [Header("Movement Settings")]
+    [SerializeField] private float walkSpeed = 6f;       // ความเร็วเดินปกติ
+    [SerializeField] private float sprintSpeed = 10f;    // ความเร็วเมื่อกด Shift
+
+    [Header("Aim Settings")]
+    [SerializeField] private LayerMask groundLayer;      // Layer ของพื้น เพื่อให้ Raycast ยิงโดน
+
+    private Rigidbody rb;
+    private Camera mainCamera;
+    private Vector3 moveInput;
+    private float currentSpeed;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+        mainCamera = Camera.main;
+    }
+
+    private void Update()
+    {
+        // รับค่าการเดิน WASD
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveZ = Input.GetAxisRaw("Vertical");
+        moveInput = new Vector3(moveX, 0f, moveZ).normalized;
+
+        // เช็คการกดปุ่ม Shift เพื่อวิ่งตาม GDD
+        currentSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed;
+
+        // หันหน้าตามตำแหน่ง Cursor เมาส์บนพื้น 3D
+        RotateTowardsMouse();
+    }
+
+    private void FixedUpdate()
+    {
+        // เคลื่อนที่ตามแกน X, Z โดยล็อกแกน Y ไม่ให้กระโดดหรือลอย
+        Vector3 targetVelocity = moveInput * currentSpeed;
+        rb.linearVelocity = new Vector3(targetVelocity.x, rb.linearVelocity.y, targetVelocity.z);
+    }
+
+    private void RotateTowardsMouse()
+    {
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out RaycastHit hitInfo, 100f, groundLayer))
+        {
+            Vector3 targetPoint = hitInfo.point;
+            targetPoint.y = transform.position.y; // ล็อกแกน Y ไม่ให้ตัวละครก้มหรือเงย
+
+            Vector3 lookDirection = targetPoint - transform.position;
+            if (lookDirection.sqrMagnitude > 0.001f)
+            {
+                transform.rotation = Quaternion.LookRotation(lookDirection);
+            }
+        }
+    }
+}
