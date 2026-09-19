@@ -1,3 +1,4 @@
+/*
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -40,4 +41,34 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 }
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ flash
+*/
 
+using UnityEngine;
+
+public class Bullet : MonoBehaviour
+{
+    [SerializeField] private float speed = 35f;
+    [SerializeField] private float lifetime = 2.5f;
+
+    private void Start()
+    {
+        // ทำลายกระสุนอัตโนมัติตามเวลา ป้องกัน Object ค้างใน Memory
+        Destroy(gameObject, lifetime);
+    }
+
+    private void Update()
+    {
+        // พุ่งตรงไปข้างหน้าตามทิศทางหัวกระสุน
+        transform.Translate(Vector3.forward * (speed * Time.deltaTime));
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // ไม่ชนกับตัวผู้เล่นเอง
+        if (other.CompareTag("Player")) return;
+
+        // ในอนาคตใส่คำสั่งเช็คดาเมจศัตรู/กำแพง ตรงนี้ได้
+        Destroy(gameObject);
+    }
+}
