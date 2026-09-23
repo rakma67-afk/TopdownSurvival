@@ -26,6 +26,7 @@ public class PlayerShooting : MonoBehaviour
     public bool IsAiming => isAiming;
     public float AimWalkSpeed => aimWalkSpeed;
 
+
     AudioSource GunSound;
 
     private void Awake()

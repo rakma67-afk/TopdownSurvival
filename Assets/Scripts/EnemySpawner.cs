@@ -61,11 +61,13 @@ public class EnemySpawner : MonoBehaviour
             spawnPoint.rotation
         );
 
-        //if (spawnedEnemy.TryGetComponent<EnemyController>(out EnemyController enemy))
-        //    int randomHealth = Random.Range(minHealth, maxHealth + 1); // ÊØèÁ 1 ¶Ö§ 5
-        //    float randomSpeed = Random.Range(minSpeed, maxSpeed);     // ÊØèÁ 2 ¶Ö§ 10
-        //
-        //    enemy.SetStats(randomHealth, randomSpeed);
-        //}
+        if (spawnedEnemy.TryGetComponent<EnemyController>(out EnemyController enemy))
+        {
+            int randomHealth = Random.Range(minHealth, maxHealth + 1); // à¸ªà¸¸à¹ˆà¸¡ 1 à¸–à¸¶à¸‡ 5
+            float randomSpeed = Random.Range(minSpeed, maxSpeed);     // à¸ªà¸¸à¹ˆà¸¡ 2 à¸–à¸¶à¸‡ 10
+
+            enemy.SetStats(randomHealth, randomSpeed);
+        }
+
     }
 }
