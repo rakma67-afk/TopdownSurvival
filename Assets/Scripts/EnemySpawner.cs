@@ -8,6 +8,12 @@ public class EnemySpawner : MonoBehaviour
     public float spawnInterval = 1.5f;
     public float firstSpawnDelay = 1f;
 
+    [Header("Random Settings")]
+    public int minHealth = 1;
+    public int maxHealth = 5;
+    public float minSpeed = 2f;
+    public float maxSpeed = 10f;
+
     private void Start()
     {
         StartCoroutine(
@@ -49,10 +55,17 @@ public class EnemySpawner : MonoBehaviour
         Transform spawnPoint =
             spawnPoints[randomIndex];
 
-        Instantiate(
+        GameObject spawnedEnemy = Instantiate(
             enemyPrefab,
             spawnPoint.position,
             spawnPoint.rotation
         );
+
+        //if (spawnedEnemy.TryGetComponent<EnemyController>(out EnemyController enemy))
+        //    int randomHealth = Random.Range(minHealth, maxHealth + 1); // สุ่ม 1 ถึง 5
+        //    float randomSpeed = Random.Range(minSpeed, maxSpeed);     // สุ่ม 2 ถึง 10
+        //
+        //    enemy.SetStats(randomHealth, randomSpeed);
+        //}
     }
 }
