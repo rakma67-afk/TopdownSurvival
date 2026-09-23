@@ -50,6 +50,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float speed = 35f;
     [SerializeField] private float lifetime = 2.5f;
+    public int damage = 1;
 
     private void Start()
     {
@@ -67,6 +68,12 @@ public class Bullet : MonoBehaviour
     {
         // ไม่ชนกับตัวผู้เล่นเอง
         if (other.CompareTag("Player")) return;
+
+        if (other.TryGetComponent<EnemyController>(
+            out EnemyController enemy))
+        {
+            enemy.TakeDamage(damage);
+        }
 
         // ในอนาคตใส่คำสั่งเช็คดาเมจศัตรู/กำแพง ตรงนี้ได้
         Destroy(gameObject);

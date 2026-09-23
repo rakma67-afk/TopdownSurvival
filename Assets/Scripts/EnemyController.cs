@@ -15,6 +15,13 @@ public class EnemyController : MonoBehaviour
     private Transform player;
     private bool isDead = false;
 
+    public void SetStats(int health, float speed)
+    {
+        maxHealth = health;
+        currentHealth = maxHealth;
+        moveSpeed = speed;
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
