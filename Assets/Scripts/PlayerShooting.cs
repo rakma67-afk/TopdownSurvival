@@ -26,15 +26,10 @@ public class PlayerShooting : MonoBehaviour
     public bool IsAiming => isAiming;
     public float AimWalkSpeed => aimWalkSpeed;
 
-
-    AudioSource GunSound;
-
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
         currentSpread = hipFireSpread;
-
-        GunSound = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -63,8 +58,6 @@ public class PlayerShooting : MonoBehaviour
     private void Shoot()
     {
         if (bulletPrefab == null || firePoint == null) return;
-
-        GunSound.Play();
 
         // สุ่มมุมกระจายตาม currentSpread บนแกน Y
         float randomAngle = Random.Range(-currentSpread, currentSpread);
