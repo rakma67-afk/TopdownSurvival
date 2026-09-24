@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
 
     [Header("Random Settings")]
     public int minHealth = 1;
-    public int maxHealth = 5;
+    public int maxHealth = 25;
     public float minSpeed = 2f;
     public float maxSpeed = 10f;
 
@@ -65,8 +65,10 @@ public class EnemySpawner : MonoBehaviour
         {
             int randomHealth = Random.Range(minHealth, maxHealth + 1); // สุ่ม 1 ถึง 5
             float randomSpeed = Random.Range(minSpeed, maxSpeed);     // สุ่ม 2 ถึง 10
+            float armorValue = 0;
 
-            enemy.SetStats(randomHealth, randomSpeed);
+
+            enemy.SetStats(randomHealth, randomSpeed, armorValue);
         }
 
     }
