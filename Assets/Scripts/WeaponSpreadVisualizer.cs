@@ -36,4 +36,9 @@ public class WeaponSpreadVisualizer : MonoBehaviour
         lineRenderer.SetPosition(1, firePoint);
         lineRenderer.SetPosition(2, rightTarget);
     }
+
+    public void SetRange(float newRange)
+    {
+        range = newRange;
+    }
 }
