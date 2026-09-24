@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PlayerShooting : MonoBehaviour
 {
@@ -25,11 +26,13 @@ public class PlayerShooting : MonoBehaviour
 
     public bool IsAiming => isAiming;
     public float AimWalkSpeed => aimWalkSpeed;
+    public AudioSource GunSound;
 
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
         currentSpread = hipFireSpread;
+        GunSound = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -57,6 +60,7 @@ public class PlayerShooting : MonoBehaviour
 
     private void Shoot()
     {
+        GunSound.Play();
         if (bulletPrefab == null || firePoint == null) return;
 
         // สุ่มมุมกระจายตาม currentSpread บนแกน Y
