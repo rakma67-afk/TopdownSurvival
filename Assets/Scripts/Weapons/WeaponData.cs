@@ -7,6 +7,9 @@ public class WeaponData : ScriptableObject
     public string weaponName;
     public bool isMelee;
 
+    [Header("โมเดลอาวุธ (3D Model)")]
+    public GameObject weaponPrefab;
+
     [Header("ค่าสถิติ (Stats)")]
     public float damage;
     public float fireRate;
@@ -15,6 +18,9 @@ public class WeaponData : ScriptableObject
     [Header("ระบบเล็งและแรงดีด (Spread)")]
     public float hipSpread;
     public float aimSpread;
+
+    [Header("ลูกซอง (Shotgun Settings)")]
+    public int bulletsPerShot = 1;
 
     [Header("กระสุน")]
     public int maxAmmo; // ความจุต่อ 1 แมกกาซีน

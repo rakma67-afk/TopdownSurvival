@@ -14,11 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   weaponName: Axe
   isMelee: 1
-  damage: 5
+  weaponPrefab: {fileID: 4388694800061094808, guid: 822bcce9cc62cc843925c7bc50a045af, type: 3}
+  damage: 10
   fireRate: 1.25
-  range: 5
+  range: 2
   hipSpread: 45
   aimSpread: 45
+  bulletsPerShot: 1
   maxAmmo: 0
   attackSound: {fileID: 8300000, guid: 3739d3700bdfb6f40819f6c70e309f62, type: 3}
   reloadSound: {fileID: 0}

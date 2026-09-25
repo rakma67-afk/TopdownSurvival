@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f187bc8e8df66014c8cc42941979fd10, type: 3}
-  m_Name: AK-47
+  m_Name: ShotGun
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
-  weaponName: AK-47
+  weaponName: ShotGun
   isMelee: 0
-  weaponPrefab: {fileID: 4311248730837266121, guid: c20daf91d2bce304c85fec03f5fafd3b, type: 3}
-  damage: 5
-  fireRate: 0.15
+  weaponPrefab: {fileID: 4205521026231025682, guid: f7a69565ab2ff984789da792b0969f4b, type: 3}
+  damage: 1
+  fireRate: 1
   range: 20
-  hipSpread: 25
-  aimSpread: 3.5
-  bulletsPerShot: 1
-  maxAmmo: 30
-  attackSound: {fileID: 8300000, guid: 754b8c1702d33384287e011a0a764a60, type: 3}
+  hipSpread: 40
+  aimSpread: 20
+  bulletsPerShot: 10
+  maxAmmo: 8
+  attackSound: {fileID: 0}
   reloadSound: {fileID: 0}
