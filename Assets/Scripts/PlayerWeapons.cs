@@ -19,6 +19,10 @@ public class PlayerWeapon : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float reloadTime = 1.5f; // ใช้เวลาเปลี่ยนกระสุนกี่วินาที
 
+    [Header("Weapon Visuals")]
+    [SerializeField] private Transform weaponHolder; // จุดเกาะของอาวุธบนตัวละคร
+    private GameObject currentWeaponModelInstance;   // เก็บโมเดล 3D ที่กำลังแสดงผลอยู่
+
     private float nextTimeToFire = 0f;
     private float currentSpread;
     private bool isAiming;
@@ -107,8 +111,26 @@ public class PlayerWeapon : MonoBehaviour
             currentWeapon = weaponSlots[currentSlot];
             currentSpread = currentWeapon.hipSpread;
             Debug.Log($"Equipped: {currentWeapon.weaponName} | Ammo: {currentAmmos[currentSlot]} / {currentWeapon.maxAmmo}");
+            if (currentWeaponModelInstance != null)
+            {
+                Destroy(currentWeaponModelInstance);
+            }
+
+            // 2. สร้างโมเดลอาวุธชิ้นใหม่ขึ้นมาตรงตำแหน่ง weaponHolder
+            if (currentWeapon.weaponPrefab != null && weaponHolder != null)
+            {
+                currentWeaponModelInstance = Instantiate(currentWeapon.weaponPrefab, weaponHolder);
+
+                // จัดตำแหน่งและองศาให้ตรงกับจุดศูนย์กลางของ Holder พอดิบพอดี
+                currentWeaponModelInstance.transform.localPosition = Vector3.zero;
+                currentWeaponModelInstance.transform.localRotation = Quaternion.identity;
+            }
+            // --------------------------
+
+            Debug.Log($"Equipped: {currentWeapon.weaponName} | Ammo: {currentAmmos[currentSlot]} / {currentWeapon.maxAmmo}");
         }
     }
+
 
     private IEnumerator Reload()
     {
@@ -154,10 +176,14 @@ public class PlayerWeapon : MonoBehaviour
     private void ShootRanged()
     {
         if (bulletPrefab == null || firePoint == null) return;
-        float randomAngle = Random.Range(-currentSpread, currentSpread);
-        Quaternion spreadRotation = Quaternion.AngleAxis(randomAngle, Vector3.up);
-        Vector3 shootDirection = spreadRotation * firePoint.forward;
-        Instantiate(bulletPrefab, firePoint.position, Quaternion.LookRotation(shootDirection));
+
+        for (int i = 0; i < currentWeapon.bulletsPerShot; i++)
+        {
+            float randomAngle = Random.Range(-currentSpread, currentSpread);
+            Quaternion spreadRotation = Quaternion.AngleAxis(randomAngle, Vector3.up);
+            Vector3 shootDirection = spreadRotation * firePoint.forward;
+            Instantiate(bulletPrefab, firePoint.position, Quaternion.LookRotation(shootDirection));
+        }
     }
 
     private void MeleeAttack()

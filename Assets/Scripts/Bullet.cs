@@ -67,7 +67,7 @@ public class Bullet : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // ไม่ชนกับตัวผู้เล่นเอง
-        if (other.CompareTag("Player")) return;
+        if (other.CompareTag("Player") || other.CompareTag("Bullet")) return;
 
         if (other.TryGetComponent<EnemyController>(
             out EnemyController enemy))
