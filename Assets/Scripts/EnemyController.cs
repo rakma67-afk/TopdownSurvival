@@ -12,7 +12,11 @@ public class EnemyController : MonoBehaviour
     public float armor = 0f;       
     public float touchDamage = 20f;
     public int scoreValue = 10;
-    
+
+    [Header("Drops")]
+    public GameObject healthDropPrefab;
+    [Range(0f, 1f)] public float dropChance = 0.1f;
+
     private float currentHealth;
     private Rigidbody rb;
     private Transform player;
@@ -93,6 +97,15 @@ public class EnemyController : MonoBehaviour
         if (GameManager.Instance != null)
         {
             GameManager.Instance.AddScore(scoreValue);
+        }
+
+        if (healthDropPrefab != null)
+        {
+            // Random.value จะสุ่มเลขตั้งแต่ 0.0 ถึง 1.0
+            if (Random.value <= dropChance)
+            {
+                Instantiate(healthDropPrefab, transform.position, Quaternion.identity);
+            }
         }
 
         Destroy(gameObject);
