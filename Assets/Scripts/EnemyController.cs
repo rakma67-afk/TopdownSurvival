@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     public float maxHealth = 100f; 
     public float armor = 0f;       
     public float touchDamage = 20f;
-    public int scoreValue = 10;
+    public int scoreValue = Random.Range(1, 100);
 
     [Header("Drops")]
     public GameObject healthDropPrefab;
@@ -97,6 +97,8 @@ public class EnemyController : MonoBehaviour
         if (GameManager.Instance != null)
         {
             GameManager.Instance.AddScore(scoreValue);
+
+            GameManager.Instance.EnemyDied();
         }
 
         if (healthDropPrefab != null)
@@ -118,7 +120,8 @@ public class EnemyController : MonoBehaviour
         if (other.TryGetComponent<PlayerHealth>(out PlayerHealth playerHealth))
         {
             // หาก PlayerHealth.TakeDamage() ของคุณยังใช้ int อยู่ ให้ใส่ (int) ครอบ touchDamage ไว้
-            playerHealth.TakeDamage((int)touchDamage); 
+            playerHealth.TakeDamage((int)touchDamage);
+            GameManager.Instance.EnemyDied();
 
             Destroy(gameObject);
         }

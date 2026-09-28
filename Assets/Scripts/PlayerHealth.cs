@@ -58,7 +58,6 @@ public class PlayerHealth : MonoBehaviour
     [Header("Player Stats")]
     public float maxHealth = 100f;
     private float currentHealth;
-
     private void Start()
     {
         currentHealth = maxHealth;
@@ -69,6 +68,7 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= damage;
         Debug.Log($"ผู้เล่นถูกโจมตี! พลังชีวิตเหลือ: {currentHealth}");
+        GameManager.Instance.SetHealth(currentHealth, maxHealth);
 
         if (currentHealth <= 0)
         {
@@ -94,6 +94,7 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("ผู้เล่นตาย! Game Over");
         // ซ่อนผู้เล่นไปก่อน (ในอนาคตสามารถเรียก GameManager เพื่อโชว์หน้า Game Over ได้)
+        GameManager.Instance.GameOver();
         gameObject.SetActive(false);
     }
 }
