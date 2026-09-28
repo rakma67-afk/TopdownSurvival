@@ -21,6 +21,7 @@ public class EnemyController : MonoBehaviour
     private Rigidbody rb;
     private Transform player;
     private bool isDead = false;
+    AudioSource audioSource;
 
     // อัปเดตฟังก์ชัน SetStats ให้รองรับเกราะ (armor)
     public void SetStats(float health, float speed, float enemyArmor)
@@ -35,6 +36,9 @@ public class EnemyController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         currentHealth = maxHealth;
+
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
 
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject != null)
