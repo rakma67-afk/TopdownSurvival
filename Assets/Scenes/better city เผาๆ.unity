@@ -119,6 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/better city เผาๆ.unity
 --- !u!1 &45792860
 GameObject:
   m_ObjectHideFlags: 0
@@ -40903,6 +40904,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402734563}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+=======
+>>>>>>> parent of 501217f (Merge pull request #12 from rakma67-afk/Map):Assets/Scenes/city เผาๆ.unity
 --- !u!1 &413468312
 GameObject:
   m_ObjectHideFlags: 0
@@ -40914,8 +40917,11 @@ GameObject:
   - component: {fileID: 413468315}
   - component: {fileID: 413468314}
   - component: {fileID: 413468313}
+<<<<<<< Updated upstream
   - component: {fileID: 413468316}
   - component: {fileID: 413468317}
+=======
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -40997,6 +41003,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Assets/Scenes/better city เผาๆ.unity
 --- !u!114 &413468316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158474,6 +158481,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1347815029}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+=======
+>>>>>>> parent of 501217f (Merge pull request #12 from rakma67-afk/Map):Assets/Scenes/city เผาๆ.unity
 --- !u!1 &1350271746
 GameObject:
   m_ObjectHideFlags: 0
@@ -158484,7 +158493,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1350271748}
   - component: {fileID: 1350271747}
-  - component: {fileID: 1350271749}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -158572,6 +158580,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+<<<<<<< HEAD:Assets/Scenes/better city เผาๆ.unity
 --- !u!114 &1350271749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262741,12 +262750,15 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144684739}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+=======
+>>>>>>> parent of 501217f (Merge pull request #12 from rakma67-afk/Map):Assets/Scenes/city เผาๆ.unity
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 413468315}
   - {fileID: 1350271748}
+<<<<<<< Updated upstream
   - {fileID: 1530074915}
   - {fileID: 475901744}
   - {fileID: 1490111114}
@@ -262760,4 +262772,6 @@ SceneRoots:
   - {fileID: 1253776981}
   - {fileID: 1776673530}
   - {fileID: 1418685263}
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

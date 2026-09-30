@@ -821,7 +821,11 @@ GameObject:
   - component: {fileID: 777926849670116794}
   - component: {fileID: 1236161927393313759}
   - component: {fileID: -3553596871252736331}
+<<<<<<< Updated upstream
   - component: {fileID: 4829589792600846142}
+=======
+  - component: {fileID: -1019427988362718516}
+>>>>>>> Stashed changes
   m_Layer: 6
   m_Name: TT_demo_zombie
   m_TagString: Untagged
@@ -936,8 +940,13 @@ MonoBehaviour:
   touchDamage: 1
   scoreValue: 10
   healthDropPrefab: {fileID: 0}
+<<<<<<< Updated upstream
   dropChance: 0
 --- !u!82 &4829589792600846142
+=======
+  dropChance: 0.1
+--- !u!82 &-1019427988362718516
+>>>>>>> Stashed changes
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -948,7 +957,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
+<<<<<<< Updated upstream
   m_Resource: {fileID: 0}
+=======
+  m_Resource: {fileID: 8300000, guid: 4f964454f580bc348bd6d1cd5354594e, type: 3}
+>>>>>>> Stashed changes
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
