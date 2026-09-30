@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     public float maxHealth = 100f; 
     public float armor = 0f;       
     public float touchDamage = 20f;
-    public int scoreValue = Random.Range(1, 100);
+    public int scoreValue = 10;
 
     [Header("Drops")]
     public GameObject healthDropPrefab;
