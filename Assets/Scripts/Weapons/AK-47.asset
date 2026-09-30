@@ -21,6 +21,6 @@ MonoBehaviour:
   hipSpread: 25
   aimSpread: 3.5
   bulletsPerShot: 1
-  maxAmmo: 30
+  maxAmmo: 100
   attackSound: {fileID: 8300000, guid: 754b8c1702d33384287e011a0a764a60, type: 3}
   reloadSound: {fileID: 0}
