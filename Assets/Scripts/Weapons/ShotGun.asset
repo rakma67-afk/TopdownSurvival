@@ -21,6 +21,6 @@ MonoBehaviour:
   hipSpread: 40
   aimSpread: 20
   bulletsPerShot: 10
-  maxAmmo: 8
+  maxAmmo: 32
   attackSound: {fileID: 0}
   reloadSound: {fileID: 0}
